@@ -1,0 +1,29 @@
+#root {
+  margin: 0 0 auto;
+  display: flex;
+}
+
+header {
+  background-color: rgb(27, 27, 150);
+  color: white;
+  padding: 15px;
+  width: 1890px;
+  display: flex;
+  justify-content: center;
+}
+
+section {
+  margin: 80px;
+}
+
+.product-Section {
+  background-color: rgb(241, 238, 238);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.cart-section {
+  background-color: rgb(241, 238, 238);
+  border-radius: 8px;
+  padding: 20px;
+}

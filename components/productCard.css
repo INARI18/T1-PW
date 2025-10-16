@@ -1,0 +1,14 @@
+.product-card {
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    width: 200px;
+}
+
+.product-div {
+    background-color: black;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    padding: 10px;
+    text-align: center;
+}

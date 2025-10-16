@@ -1,0 +1,15 @@
+.product {
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+    width: 80px;
+    
+}
+.cart-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
