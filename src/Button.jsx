@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css';
+import './assets/styles/Button.css';
 
 export function Button ( { text }  ) {
     return (

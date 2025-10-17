@@ -1,15 +1,25 @@
-import './App.css'
-import { ProductsList } from '../components/productsList'
-import { ProductCard } from '../components/productsList'
-import { Cart } from '../components/cart'
+import './assets/styles/App.css'
+import { ProductList } from './Product_List'
+import { Cart } from './Cart'
 
 export default function App() {
   
   // const [cartItems, setCartItems] = useState([])
   // const [products, setProducts] = useState([])
 
+  const cart = {
+    storage: [
+      {
+        name: "Produto 1",
+        price: "R$ 109,00"
+      }
+    ],
+    total_price: "R$ 109,00",
+    size: 1
+  }
+
   const product = {
-    name: "P1",
+    name: "Produto 1",
     price: "R$ 109,00"
   }
 
@@ -19,15 +29,11 @@ export default function App() {
           <h1>Minha Loja</h1>
         </header>
         <section>
-          <h2>Carrinho</h2>
-          <div className='cart-section'>
-            <Cart />
-          </div>
+            <Cart cart={cart} />
         </section>
         <section>
-          <h2>Lista de Produtos</h2>
           <div className="product-Section">
-            <ProductCard product={product} />
+            <ProductList product={product} />
           </div>
         </section>
         <footer>
