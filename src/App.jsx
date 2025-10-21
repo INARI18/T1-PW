@@ -10,7 +10,7 @@ export default function App() {
   const cart = {
     storage: [
       {
-        name: "Produto 1",
+        name: "Prod 1",
         price: "R$ 109,00"
       }
     ],
@@ -18,10 +18,14 @@ export default function App() {
     size: 1
   }
 
-  const product = {
-    name: "Produto 1",
-    price: "R$ 109,00"
-  }
+  const products = [
+    { id: 1, name: 'Prod 1', price: 'R$ 109,00' }, 
+    { id: 2, name: 'Prod 2', price: 'R$ 59,00' }, 
+    { id: 3, name: 'Prod 3', price: 'R$ 29,00' },
+    { id: 4, name: 'Prod 4', price: 'R$ 35,50' },
+    { id: 5, name: 'Prod 5', price: 'R$ 90,10' },
+    { id: 6, name: 'Prod 6', price: 'R$ 12,00' }
+  ]
 
   return (
       <main>
@@ -33,11 +37,11 @@ export default function App() {
         </section>
         <section>
           <div className="product-Section">
-            <ProductList product={product} />
+            <ProductList products={products} />
           </div>
         </section>
         <footer>
-          <p></p>
+          <p>Direitos Autorais. 2025.</p>
         </footer>
       </main>
   )

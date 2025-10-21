@@ -30,3 +30,11 @@ section {
   border-radius: 8px;
   padding: 20px;
 }
+
+footer {
+  background-color: rgb(27, 27, 150);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
