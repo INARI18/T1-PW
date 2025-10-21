@@ -1,6 +1,6 @@
 import './assets/styles/App.css'
-import { ProductList } from './Product_List'
-import { Cart } from './Cart'
+import { ProductList } from './components/Product_List.jsx'
+import { Cart } from './components/Cart'
 
 export default function App() {
   

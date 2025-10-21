@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from './Button.jsx';
-import { ProductCard } from './Product_Card.jsx';
-import './assets/styles/Product_List.css';
+import { Button } from '../components/ui/Button';
+import { ProductCard } from '../components/Product_Card';
+import '../assets/styles/Product_List.css';
 
 // lista de cards
 export function ProductList() {

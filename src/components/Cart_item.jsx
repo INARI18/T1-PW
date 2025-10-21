@@ -1,5 +1,4 @@
-// import './assets/styles/Cart_item.css'
-//ta dando problema com o css
+import '../assets/styles/Cart_item.css';
 
 export function Cart_item({ item }) {
 

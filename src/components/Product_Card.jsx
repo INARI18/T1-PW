@@ -1,5 +1,4 @@
-import './assets/styles/Product_Card.css';
-
+import '../assets/styles/Product_Card.css';
 
 export function ProductCard( { product } ) {
     return (
