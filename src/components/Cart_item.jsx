@@ -1,4 +1,4 @@
-import '../assets/styles/Cart_item.css';
+import '../assets/styles/Cart_Item.css';
 
 export function Cart_item({ item }) {
 
