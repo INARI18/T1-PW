@@ -1,17 +1,31 @@
-import './App.css'
-import { ProductsList } from '../components/productsList'
-import { ProductCard } from '../components/productsList'
-import { Cart } from '../components/cart'
+import './assets/styles/App.css'
+import { ProductList } from './components/Product_List.jsx'
+import { Cart } from './components/Cart'
 
 export default function App() {
   
   // const [cartItems, setCartItems] = useState([])
   // const [products, setProducts] = useState([])
 
-  const product = {
-    name: "P1",
-    price: "R$ 109,00"
+  const cart = {
+    storage: [
+      {
+        name: "Prod 1",
+        price: "R$ 109,00"
+      }
+    ],
+    total_price: "R$ 109,00",
+    size: 1
   }
+
+  const products = [
+    { id: 1, name: 'Prod 1', price: 'R$ 109,00' }, 
+    { id: 2, name: 'Prod 2', price: 'R$ 59,00' }, 
+    { id: 3, name: 'Prod 3', price: 'R$ 29,00' },
+    { id: 4, name: 'Prod 4', price: 'R$ 35,50' },
+    { id: 5, name: 'Prod 5', price: 'R$ 90,10' },
+    { id: 6, name: 'Prod 6', price: 'R$ 12,00' }
+  ]
 
   return (
       <main>
@@ -19,19 +33,15 @@ export default function App() {
           <h1>Minha Loja</h1>
         </header>
         <section>
-          <h2>Carrinho</h2>
-          <div className='cart-section'>
-            <Cart />
-          </div>
+            <Cart cart={cart} />
         </section>
         <section>
-          <h2>Lista de Produtos</h2>
           <div className="product-Section">
-            <ProductCard product={product} />
+            <ProductList products={products} />
           </div>
         </section>
         <footer>
-          <p></p>
+          <p>Direitos Autorais. 2025.</p>
         </footer>
       </main>
   )

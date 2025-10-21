@@ -7,7 +7,8 @@
     width: 80px;
     
 }
-.cart-div {
+.Cart_List {
+    background-color: grey;
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
