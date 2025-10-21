@@ -1,3 +1,10 @@
+
+.Cart{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0px;
+}
 .product {
     background-color: black;
     color: white;
@@ -8,9 +15,39 @@
     
 }
 .Cart_List {
-    background-color: grey;
+    background-color: rgb(216, 216, 216);
     display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 92%;
+    margin-top: 0%;
+    padding: 15px;
+}
+
+h2 {
+    color: black;
+    margin-left: 10%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.Cart ul{
+    padding-left: 0%;
+    margin-left: 0%;
+}
+
+.Cart  li {
+   margin-bottom: 0%;
+   margin-top: 0%;
+   margin-left: 0%;
+   list-style-type: none;
+   width: 100%;
+}
+
+p {
+    color: black;
+    margin-left: 1%;
+    margin-right: 0%;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }

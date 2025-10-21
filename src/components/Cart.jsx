@@ -3,19 +3,21 @@ import {Cart_item} from './Cart_item'
 import { Button } from './ui/Button'
 
 export function Cart({ cart }) {
-
-    let i;
     return (
         <div>
             <h2>Carrinho</h2>
-            <p>Itens: {cart.size}</p>
-            <p>Total: {cart.total_price}</p>
-            <section className="Cart_List">
-                {cart.storage.map((item) => (
-                    <Cart_item item={item} />
-                ))}
-            </section>
-            <Button text="Finalizar Compra" />
+                <section className= "Cart">
+                    <section className="Cart_List">
+                        <ul>
+                            <li><p><b>Itens:</b> {cart.size}</p></li>
+                            <li><p><b>Total:</b> {cart.totalPrice}</p></li>
+                        </ul>
+                        {cart.storage.map((item) => (
+                            <Cart_item key={item.id} item={item} />
+                        ))}
+                        <Button text="Limpar" variant='clear' />
+                    </section>
+                </section>
         </div>
     );
 }

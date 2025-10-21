@@ -1,31 +1,30 @@
+import React, { useState } from 'react'
 import './assets/styles/App.css'
 import { ProductList } from './components/Product_List.jsx'
 import { Cart } from './components/Cart'
 
 export default function App() {
-  
-  // const [cartItems, setCartItems] = useState([])
-  // const [products, setProducts] = useState([])
-
-  const cart = {
-    storage: [
-      {
-        name: "Prod 1",
-        price: "R$ 109,00"
-      }
-    ],
-    total_price: "R$ 109,00",
-    size: 1
-  }
+  const [cart, setCart] = useState({ storage: [], totalPrice: 0, size: 0 })
 
   const products = [
-    { id: 1, name: 'Prod 1', price: 'R$ 109,00' }, 
-    { id: 2, name: 'Prod 2', price: 'R$ 59,00' }, 
-    { id: 3, name: 'Prod 3', price: 'R$ 29,00' },
-    { id: 4, name: 'Prod 4', price: 'R$ 35,50' },
-    { id: 5, name: 'Prod 5', price: 'R$ 90,10' },
-    { id: 6, name: 'Prod 6', price: 'R$ 12,00' }
+    { id: 1, name: 'Prod 1', price: 109.5 }, 
+    { id: 2, name: 'Prod 2', price: 59.05 }, 
+    { id: 3, name: 'Prod 3', price: 29.90 },
+    { id: 4, name: 'Prod 4', price: 35.50 },
+    { id: 5, name: 'Prod 5', price: 90.10 },
+    { id: 6, name: 'Prod 6', price: 12.00 }
   ]
+
+  const addToCart = (product) => {
+    setCart((prev) => {
+      const newStorage = [...prev.storage, product]
+      return {
+        storage: newStorage,
+        totalPrice: prev.totalPrice + product.price,
+        size: prev.size + 1
+      }
+    })
+  }
 
   return (
       <main>
@@ -37,7 +36,7 @@ export default function App() {
         </section>
         <section>
           <div className="product-Section">
-            <ProductList products={products} />
+            <ProductList products={products} onAddToCart={addToCart} />
           </div>
         </section>
         <footer>
