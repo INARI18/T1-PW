@@ -1,5 +1,5 @@
-import '../assets/styles/Product.css';
-import Button from './ui/Button';
+import '../../assets/styles/Product.css';
+import Button from '../ui/Button';
 
 // lista de cards
 export default function ProductList({ products = [], onAddToCart }) {

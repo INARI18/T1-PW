@@ -1,6 +1,6 @@
-import '../assets/styles/Cart.css'
-import Cart_item  from '../components/Cart'
-import  Button  from '../components/ui/Button'
+import '../../assets/styles/Cart.css'
+import Cart_item  from '../functions/Cart'
+import  Button  from '../ui/Button'
 
 export default function CartPage({cart}) {
     return (
