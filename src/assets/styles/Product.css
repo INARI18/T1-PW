@@ -1,3 +1,5 @@
+/* Card de Produtos */
+
 .product-card {
     background-color: white;
     color: black;
@@ -18,4 +20,11 @@
     margin: 20px;
     color: black;
     text-align: center;
+}
+
+/* Lista de Produtos */
+
+.ProductList {
+    display: flex;
+    gap: 30px;   
 }

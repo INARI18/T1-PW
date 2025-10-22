@@ -1,8 +1,8 @@
 import '../assets/styles/Cart.css'
-import Cart_item  from '../components/Cart_item'
+import Cart_item  from '../components/Cart'
 import  Button  from '../components/ui/Button'
 
-export function CartPage({ cart }) {
+export default function CartPage({cart}) {
     return (
         <div>
             <h2>Carrinho</h2>
@@ -12,7 +12,7 @@ export function CartPage({ cart }) {
                         <li><p><b>Itens:</b> {cart.size}</p></li>
                         <li><p><b>Total:</b> {cart.totalPrice}</p></li>
                     </ul>
-                    {cart.storage.map((item) => (
+                    {cart.map((item) => (
                         <Cart_item key={item.id} item={item} />
                     ))}
                     <Button text="Limpar" variant='clear' />

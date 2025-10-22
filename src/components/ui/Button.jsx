@@ -1,7 +1,6 @@
-import React from 'react';
-import '../../assets/styles/Button.css';
+import '../../assets/styles/Ui.css';
 
-export function Button({ text, variant = '', onClick }) {
+export default function Button({ text, variant = '', onClick }) {
 
   return (
     <button className={`button--${variant}`} onClick={onClick}>
