@@ -28,14 +28,28 @@ export default function App() {
     })
   }
 
+  const clearCart = () => {
+    setCart(prevCart => {
+      const newStorage = []
+      const newTotalPrice = 0
+      const newSize = 0
+      
+      return {
+        storage: newStorage,
+        totalPrice: newTotalPrice,
+        size: newSize
+      }
+    })
+  }
+
   return (
     <div>
       <BrowserRouter>
         <Header />
           <Routes>
-            <Route path="/" element={<LandingPage cart={cart} products={productsData.products} addToCart={addToCart}/>} />
+            <Route path="/" element={<LandingPage cart={cart} products={productsData.products} addToCart={addToCart} clearCart={clearCart}/>} />
             <Route path="/products" element={<ProductPage products={productsData.products} addToCart={addToCart}/>} />
-            <Route path="/cart" element={<CartPage cart={cart}/>} />
+            <Route path="/cart" element={<CartPage cart={cart} clearCart={clearCart}/>} />
           </Routes>
       </BrowserRouter> 
       <Footer />
