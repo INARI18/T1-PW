@@ -1,3 +1,9 @@
+/* Body do CartPage */
+.cart-body {
+    background-color: rgb(240, 240, 240);
+    justify-content: center;
+    padding: 40px;
+}
 
 /* Cart */
 .Cart{

@@ -4,7 +4,7 @@ import  Button  from '../components/ui/Button'
 
 export default function CartPage({cart}) {
     return (
-        <div>
+        <section className="cart-body">
             <h2>Carrinho</h2>
             <section className="Cart">
                 <section className="Cart_List">
@@ -18,6 +18,6 @@ export default function CartPage({cart}) {
                     <Button text="Limpar" variant='clear' />
                 </section>
             </section>
-        </div>
+        </section>
     );
 }

@@ -1,6 +1,6 @@
-import '../assets/styles/App.css'
 import ProductList from '../components/Product.jsx'
 import Cart from '../components/Cart.jsx'
+import '../assets/styles/Landing.css'
 
 export default function LandingPage({cart, products}) {
   // const [cart, setCart] = useState({ storage: [], totalPrice: 0, size: 0 })
@@ -17,16 +17,14 @@ export default function LandingPage({cart, products}) {
   }
 
   return (
-      <main>
+      <section className="landing-body">
         <section>
             <Cart cart={cart} />
         </section>
         <section>
-          <div className="product-Section">
             <ProductList products={products} onAddToCart={addToCart} />
-          </div>
         </section> 
-      </main>
+      </section>
   )
 }
 

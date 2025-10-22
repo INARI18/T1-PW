@@ -1,13 +1,12 @@
 import ProductList from '../components/Product';
+import '../assets/styles/Product.css';
 
 export default function ProductPage({products}) {
 
   return (
       <main>
-        <section>
-          <div className="product-Section">
+        <section className="product-body">
             <ProductList products={products} />
-          </div>
         </section>
       </main>
   )

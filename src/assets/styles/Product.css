@@ -1,3 +1,10 @@
+/* Body do ProductPage */
+.product-body {
+    background-color: rgb(240, 240, 240);
+    justify-content: center;
+    padding: 40px;
+}
+
 /* Card de Produtos */
 
 .product-card {
