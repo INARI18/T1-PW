@@ -1,7 +1,7 @@
 import '../assets/styles/Cart_Item.css';
 import { Button } from './ui/Button';
 
-export function Cart_item({ item }) {
+export default function Cart_item({ item }) {
 
     return (
         <section className="cart_item">

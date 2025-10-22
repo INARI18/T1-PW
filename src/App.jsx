@@ -1,48 +1,31 @@
-import React, { useState } from 'react'
 import './assets/styles/App.css'
-import { ProductList } from './components/Product_List.jsx'
-import { Cart } from './components/Cart'
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import ProductPage from './products/index.jsx'
+import LandingPage from './landing/index.jsx'
+import Header from './components/ui/Header.jsx'
+import Footer from './components/ui/Footer.jsx'
+import CartPage from './cart/index.jsx'
+
 
 export default function App() {
-  const [cart, setCart] = useState({ storage: [], totalPrice: 0, size: 0 })
-
-  const products = [
-    { id: 1, name: 'Prod 1', price: 109.5 }, 
-    { id: 2, name: 'Prod 2', price: 59.05 }, 
-    { id: 3, name: 'Prod 3', price: 29.90 },
-    { id: 4, name: 'Prod 4', price: 35.50 },
-    { id: 5, name: 'Prod 5', price: 90.10 },
-    { id: 6, name: 'Prod 6', price: 12.00 }
-  ]
-
-  const addToCart = (product) => {
-    setCart((prev) => {
-      const newStorage = [...prev.storage, product]
-      return {
-        storage: newStorage,
-        totalPrice: prev.totalPrice + product.price,
-        size: prev.size + 1
-      }
-    })
-  }
 
   return (
-      <main>
-        <header>
-          <h1>Minha Loja</h1>
-        </header>
-        <section>
-            <Cart cart={cart} />
-        </section>
-        <section>
-          <div className="product-Section">
-            <ProductList products={products} onAddToCart={addToCart} />
-          </div>
-        </section>
-        <footer>
-          <p>Direitos Autorais. 2025.</p>
-        </footer>
-      </main>
+    <div>
+      <Header />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/products" element={<ProductPage />} />
+          </Routes>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+          </Routes>
+          <Routes>
+            <Route path="/cart" element={<CartPage />} />
+          </Routes>
+        </BrowserRouter> 
+      <Footer />
+    </div>
+  
   )
 }
 

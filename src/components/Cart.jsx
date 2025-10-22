@@ -1,5 +1,5 @@
 import '../assets/styles/Cart.css'
-import {Cart_item} from './Cart_item'
+import { Cart_item } from './Cart_item'
 import { Button } from './ui/Button'
 
 export function Cart({ cart }) {
