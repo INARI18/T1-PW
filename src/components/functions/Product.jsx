@@ -10,7 +10,7 @@ export default function ProductList({ products = [], onAddToCart }) {
             <section className="ProductList">
                 {products.length > 0 ? (
                     products.map((product) => (
-                        <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
+                        <ProductCard product={product} onAddToCart={onAddToCart} />
                     ))
                 ) : (
                     <p style={{color:'black'}}>Nenhum produto disponível no momento</p>
@@ -20,7 +20,7 @@ export default function ProductList({ products = [], onAddToCart }) {
     );
 }
 
-function ProductCard( {product, onAddToCart } ) {
+function ProductCard( {product, onAddToCart} ) {
 
     const handleBuy = () => {
         if (onAddToCart) onAddToCart(product)

@@ -1,5 +1,6 @@
 import './assets/styles/Landing.css'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import {useState} from 'react'
 import ProductPage from './components/pages/ProductPage.jsx'
 import LandingPage from './components/pages/LandingPage.jsx'
 import Header from './components/ui/Header.jsx'
@@ -11,21 +12,20 @@ import productsData from './assets/Produtos.json'
 
 export default function App() {
 
-  const cart = {storage: [], totalPrice: 0, size: 0 }
-
-  const setCart= (product) => {
-      const newStorage = [...cart.storage, product]
-      const newTotalPrice = cart.totalPrice + product.price
-      const newSize = cart.size + 1
+  const [cart, setCart] = useState({storage: [], totalPrice: 0, size: 0})
+ 
+  const addToCart = (product) => {
+    setCart(prevCart => {
+      const newStorage = [...prevCart.storage, product]
+      const newTotalPrice = prevCart.totalPrice + product.price
+      const newSize = prevCart.size + 1
+      
       return {
         storage: newStorage,
         totalPrice: newTotalPrice,
         size: newSize
       }
-    }
-
-  const addToCart = (product) => {
-    setCart(product)
+    })
   }
 
   return (
