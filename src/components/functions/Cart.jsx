@@ -2,7 +2,7 @@ import '../../assets/styles/Cart.css'
 import Button from '../ui/Button'
 import { Link } from 'react-router-dom';
 
-export default function Cart({ cart }) {
+export default function Cart({ cart}) {
     return (
         <div>
             <Link to = "/cart" ><h2>Carrinho</h2></Link>
@@ -12,8 +12,8 @@ export default function Cart({ cart }) {
                             <li><p><b>Itens:</b> {cart.size}</p></li>
                             <li><p><b>Total:</b> {cart.totalPrice}</p></li>
                         </ul>
-                        {cart.map((item) => (
-                            <Cart_item key={item.id} item={item} />
+                        {Object.entries(cart.storage).map((item) => (
+                            <Cart_item item={item}/>
                         ))}
                         <Button text="Limpar" variant='clear' />
                     </section>

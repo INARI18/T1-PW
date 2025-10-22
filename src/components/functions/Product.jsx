@@ -20,7 +20,8 @@ export default function ProductList({ products = [], onAddToCart }) {
     );
 }
 
-function ProductCard( { product, onAddToCart } ) {
+function ProductCard( {product, onAddToCart } ) {
+
     const handleBuy = () => {
         if (onAddToCart) onAddToCart(product)
     }
