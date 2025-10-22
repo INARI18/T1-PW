@@ -15,14 +15,14 @@ export default function App() {
 
   return (
     <div>
-      <Header />
-        <BrowserRouter>
+      <BrowserRouter>
+        <Header />
           <Routes>
             <Route path="/" element={<LandingPage cart={cart} products={productsData.products}/>} />
             <Route path="/products" element={<ProductPage products={productsData.products}/>} />
             <Route path="/cart" element={<CartPage cart={cart}/>} />
           </Routes>
-        </BrowserRouter> 
+      </BrowserRouter> 
       <Footer />
     </div>
   )

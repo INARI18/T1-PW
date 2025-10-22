@@ -5,6 +5,17 @@
     padding: 40px;
 }
 
+.pruduct-body h2{
+    color:black
+}
+
+/* Lista de Produtos */
+
+.ProductList {
+    display: flex;
+    gap: 30px;   
+}
+
 /* Card de Produtos */
 
 .product-card {
@@ -29,9 +40,3 @@
     text-align: center;
 }
 
-/* Lista de Produtos */
-
-.ProductList {
-    display: flex;
-    gap: 30px;   
-}

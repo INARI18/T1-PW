@@ -1,10 +1,11 @@
 import '../../assets/styles/Cart.css'
 import Button from '../ui/Button'
+import { Link } from 'react-router-dom';
 
 export default function Cart({ cart }) {
     return (
         <div>
-            <h2>Carrinho</h2>
+            <Link to = "/cart" ><h2>Carrinho</h2></Link>
                 <section className= "Cart">
                     <section className="Cart_List">
                         <ul>

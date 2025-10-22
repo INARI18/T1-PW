@@ -11,12 +11,15 @@ footer{
 
 header {
   background-color: rgb(27, 27, 150);
-  color: white;
   padding: 15px;
   width: 100%; 
   box-sizing: border-box; 
   display: flex;
   justify-content: center;
+}
+
+header h1{
+    color: white;
 }
 
 /* Button */

@@ -5,6 +5,10 @@
     padding: 40px;
 }
 
+.cart-body h2{
+    color:black
+}
+
 /* Cart */
 .Cart{
     display: flex;

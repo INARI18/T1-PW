@@ -1,13 +1,12 @@
 import '../../assets/styles/Product.css';
 import Button from '../ui/Button';
+import  {Link}  from 'react-router-dom';
 
 // lista de cards
 export default function ProductList({ products = [], onAddToCart }) {
     return (
         <div>
-            <h2 style={{ color: 'black' }}>
-                Lista de Produtos
-                </h2>
+            <Link to = "/products" ><h2>Lista de Produtos</h2></Link>
             <section className="ProductList">
                 {products.length > 0 ? (
                     products.map((product) => (
