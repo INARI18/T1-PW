@@ -42,14 +42,28 @@ export default function App() {
     })
   }
 
+  const excludeItem = (item) => {
+    setCart(prevCart => {
+      const newStorage = prevCart.filter((product) => product.id !== item.id)
+      const newTotalPrice = cart.totalPrice - item.price
+      const newSize = cart.size - 1
+      
+      return {
+        storage: newStorage,
+        totalPrice: newTotalPrice,
+        size: newSize
+      }
+    })
+  }
+
   return (
     <div>
       <BrowserRouter>
         <Header />
           <Routes>
-            <Route path="/" element={<LandingPage cart={cart} products={productsData.products} addToCart={addToCart} clearCart={clearCart}/>} />
+            <Route path="/" element={<LandingPage cart={cart} products={productsData.products} addToCart={addToCart} clearCart={clearCart} excludeItem={excludeItem}/>} />
             <Route path="/products" element={<ProductPage products={productsData.products} addToCart={addToCart}/>} />
-            <Route path="/cart" element={<CartPage cart={cart} clearCart={clearCart}/>} />
+            <Route path="/cart" element={<CartPage cart={cart} clearCart={clearCart} excludeItem={excludeItem}/>} />
           </Routes>
       </BrowserRouter> 
       <Footer />
