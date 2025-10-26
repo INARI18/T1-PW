@@ -9,6 +9,7 @@ export default function LandingPage({cart, products, addToCart, clearCart, exclu
   return (
       <section className="landing-body">
         <section>
+          <Link to = "/cart" ><h2>Carrinho</h2></Link>
             <Cart 
               cart={cart} 
               clearCart={clearCart}

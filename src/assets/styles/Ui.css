@@ -29,6 +29,7 @@ header h1{
     justify-content: left;
     align-items: center;
     height: 10%;
+    margin-bottom: 0%;
 }
 .General-Cart h1{
     color: white;
@@ -58,6 +59,9 @@ header h1{
     color: #000000;
     border: 2px solid #d31a17;
     width: 10%;
+    margin-left: 0%;
+    margin-right: 88%;
+    margin-bottom: 10px;
 }
 
 /* variant delete */
@@ -65,5 +69,5 @@ header h1{
     background-color: #ffb836;
     color: #000000;
     border: 2px solid #ffb836;
-    margin-left: 950%;
+    margin-left: 820%
 }

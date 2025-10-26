@@ -1,6 +1,5 @@
 import '../../assets/styles/Cart.css'
 import Button from '../ui/Button'
-import { Link } from 'react-router-dom';
 
 export default function Cart({cart, clearCart, excludeItem}) {
 
@@ -10,8 +9,6 @@ export default function Cart({cart, clearCart, excludeItem}) {
     
     return (
         <div>
-            <Link to = "/cart" ><h2>Carrinho</h2></Link>
-                <section className= "Cart">
                     <section className="Cart_List">
                         <ul>
                             <li><p><b>Itens:</b> {cart.size}</p></li>
@@ -28,7 +25,6 @@ export default function Cart({cart, clearCart, excludeItem}) {
                         )}
                         <Button text="Limpar" variant='clear' onClick={handleClear}/>
                     </section>
-                </section>
         </div>
     );
 }
@@ -44,7 +40,7 @@ function Cart_item({item , excludeItem}) {
         <section className="cart_item">
             <h2>{item.name}</h2>
             <section className="item_details">
-                <ul style={{marginLeft:'20px'}}>
+                <ul>
                     <li> <p>{item.name}</p></li>
                     <li> <p>{item.price}</p></li>
                 </ul>
