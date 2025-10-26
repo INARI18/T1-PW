@@ -1,5 +1,5 @@
-import '../../assets/styles/Cart.css'
-import Cart  from '../functions/Cart'
+import '../assets/styles/Cart.css'
+import Cart  from '../components/functions/Cart'
 
 export default function CartPage({cart, clearCart, excludeItem}) {
     return (

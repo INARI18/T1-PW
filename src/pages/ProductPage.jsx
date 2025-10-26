@@ -1,5 +1,5 @@
-import ProductList from '../functions/Product';
-import '../../assets/styles/Product.css';
+import ProductList from '../components/functions/Product';
+import '../assets/styles/Product.css';
 
 export default function ProductPage({products, addToCart, excludeItem}) {
 
