@@ -15,7 +15,7 @@ import DataBase from './assets/DataBase.json'
 export default function App() {
 
   const [cart, setCart] = useState({storage: [], totalPrice: 0, size: 0, idCounter: 1})
- 
+
   const addToCart = (product) => {
     setCart(prevCart => {
       const newItem = { ...product, id: prevCart.idCounter}
@@ -25,7 +25,6 @@ export default function App() {
       const newTotalPrice = prevCart.totalPrice + newItem.price
       const newSize = prevCart.size + 1
       const newIdCounter = prevCart.idCounter + 1
-
       return {
         storage: newStorage,
         totalPrice: newTotalPrice,
@@ -60,7 +59,7 @@ export default function App() {
       <BrowserRouter>
         <Header />
         <GeneralCart 
-          cart={cart}/>
+          size={cart.size}/>
           <Routes>
             <Route path="/" element={<LandingPage 
               cart={cart} 

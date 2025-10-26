@@ -1,11 +1,12 @@
 import "../../assets/styles/Ui.css"
 import { Link } from "react-router-dom";
 
-export default function GeneralCart(cart) {
+export default function GeneralCart({size}) {
+    console.log('GeneralCart tamanho:', size);
     return (
         <main>
           <section className="General-Cart">
-              <Link to = "/cart" > <h1>Carrinho {cart.size} </h1></Link>
+              <Link to = "/cart" > <h1>Carrinho ({size}) </h1></Link>
           </section>
         </main>
     );
