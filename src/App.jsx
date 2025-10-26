@@ -4,6 +4,7 @@ import {useState} from 'react'
 import ProductPage from './pages/ProductPage.jsx'
 import LandingPage from './pages/LandingPage.jsx'
 import CartPage from './pages/CartPage.jsx'
+import ItemPage from './pages/ItemPage.jsx'
 import Header from './components/ui/Header.jsx'
 import Footer from './components/ui/Footer.jsx'
 import GeneralCart from './components/ui/GeneralCart.jsx'
@@ -72,6 +73,7 @@ export default function App() {
               cart={cart} 
               clearCart={clearCart} 
               excludeItem={excludeItem}/>} />
+            <Route path="/products/item" element={<ItemPage/>}/>
           </Routes>
       </BrowserRouter> 
       <Footer />
