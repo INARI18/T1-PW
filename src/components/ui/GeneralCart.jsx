@@ -5,7 +5,7 @@ export default function GeneralCart(cart) {
     return (
         <main>
           <section className="General-Cart">
-              <Link to = "/cart" > <h1>Carrinho ({cart.size}) </h1></Link>
+              <Link to = "/cart" > <h1>Carrinho {cart.size} </h1></Link>
           </section>
         </main>
     );

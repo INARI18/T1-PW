@@ -18,10 +18,11 @@ export default function App() {
  
   const addToCart = (product) => {
     setCart(prevCart => {
-      product.id = prevCart.idCounter
+      const newItem = { ...product, id: prevCart.idCounter}
+      console.log('Adicionando item:', newItem)
 
-      const newStorage = [...prevCart.storage, product]
-      const newTotalPrice = prevCart.totalPrice + product.price
+      const newStorage = [...prevCart.storage, newItem]
+      const newTotalPrice = prevCart.totalPrice + newItem.price
       const newSize = prevCart.size + 1
       const newIdCounter = prevCart.idCounter + 1
 
@@ -48,7 +49,8 @@ export default function App() {
       return {
             storage: newStorage,
             totalPrice: newTotalPrice,
-            size: newSize
+            size: newSize,
+            idCounter: prevCart.idCounter
       }
     })
   }
