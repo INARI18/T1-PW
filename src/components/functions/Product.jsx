@@ -1,19 +1,16 @@
 import '../../assets/styles/Product.css';
 import Button from '../ui/Button';
-import  {Link}  from 'react-router-dom';
-
 // lista de cards
-export default function ProductList({ products, onAddToCart }) {
+export default function ProductList({ products = [], onAddToCart }) {
     return (
         <div>
-            <Link to = "/products" ><h2>Lista de Produtos</h2></Link>
             <section className="ProductList">
                 {products.length > 0 ? (
                     products.map((product) => (
                         <ProductCard 
-                        key={product.id}
-                        product={product} 
-                        onAddToCart={onAddToCart} />
+                            key={product.id}
+                            product={product} 
+                            onAddToCart={onAddToCart} />
                     ))
                 ) : (
                     <p style={{color:'black'}}>Nenhum produto disponível no momento</p>
@@ -31,14 +28,12 @@ function ProductCard( {product, onAddToCart} ) {
 
     return (
         <div className="product-card">
-            <div className='product-div'>
-                <h1>{product.name}</h1>
-            </div>
+            <h1>{product.name}</h1>
             <div className='product-info'>
                 <h3>{product.name}</h3>
                 <p>{`R$ ${product.price}`}</p>
-                <Button text="Comprar" variant='buy' onClick={handleBuy} />
             </div>
+            <Button text="Comprar" variant='buy' onClick={handleBuy} />
         </div>
     );
 }

@@ -5,15 +5,21 @@
     padding: 40px;
 }
 
-.pruduct-body h2{
-    color:black
+.product-body h2{
+    color:black;
+    font-size: 250%;
+    margin-left:  0%;
 }
 
 /* Lista de Produtos */
 
 .ProductList {
     display: flex;
-    gap: 30px;   
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    height: 100%;
+    width: 95%;
 }
 
 /* Card de Produtos */
@@ -21,22 +27,36 @@
 .product-card {
     background-color: white;
     color: black;
-    border-radius: 8px;
-    width: 200px;
+    height: 280px;
+    width: 165px;
+    font-size: auto;
+    border-color: rgb(216, 216, 216);
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-.product-div {
+.product-card h1 {
     background-color: black;
     color: white;
-    border-radius: 8px 8px 0 0;
+    font-size: 14px;
+
+    margin-top: 0%;
     height: 150px;  
+    width: 100%;
+    
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .product-info {
-    margin: 20px;
+    margin-top: 0%;
     color: black;
     text-align: center;
+    font-size: auto;
+    height: 100%;
 }
 
