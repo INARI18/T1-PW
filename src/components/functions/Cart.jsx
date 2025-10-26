@@ -7,6 +7,7 @@ export default function Cart({cart, clearCart, excludeItem}) {
     const handleClear = () => {
         clearCart();
     }
+    
     return (
         <div>
             <Link to = "/cart" ><h2>Carrinho</h2></Link>

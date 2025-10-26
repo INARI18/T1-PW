@@ -13,38 +13,34 @@ import DataBase from './assets/DataBase.json'
 
 export default function App() {
 
-  const [cart, setCart] = useState({storage: [], totalPrice: 0, size: 0})
+  const [cart, setCart] = useState({storage: [], totalPrice: 0, size: 0, idCounter: 1})
  
   const addToCart = (product) => {
     setCart(prevCart => {
-      product.id = prevCart.size
+      product.id = prevCart.idCounter
+
       const newStorage = [...prevCart.storage, product]
       const newTotalPrice = prevCart.totalPrice + product.price
       const newSize = prevCart.size + 1
-      
+      const newIdCounter = prevCart.idCounter + 1
+
       return {
         storage: newStorage,
         totalPrice: newTotalPrice,
-        size: newSize
+        size: newSize,
+        idCounter: newIdCounter
       }
+
     })
   }
 
   const clearCart = () => {
-    setCart(prevCart => {
-      const newStorage = []
-      const newTotalPrice = 0
-      const newSize = 0
-      
-      return {
-        storage: newStorage,
-        totalPrice: newTotalPrice,
-        size: newSize
-      }
-    })
+      cart.storage.map((item) => {excludeItem(item)})
+      return
   }
 
   const excludeItem = (item) => {
+    console.log('Excluindo item:', item)
     setCart(prevCart => {
       const newTotalPrice = prevCart.totalPrice - item.price
       const newSize = prevCart.size - 1
@@ -61,7 +57,8 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Header />
-        <GeneralCart cart={cart}/>
+        <GeneralCart 
+          cart={cart}/>
           <Routes>
             <Route path="/" element={<LandingPage 
               cart={cart} 
