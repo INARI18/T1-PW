@@ -7,7 +7,7 @@ import CartPage from './pages/CartPage.jsx'
 import Header from './components/ui/Header.jsx'
 import Footer from './components/ui/Footer.jsx'
 import GeneralCart from './components/ui/GeneralCart.jsx'
-import productsData from './assets/Produtos.json'
+import DataBase from './assets/DataBase.json'
 
 
 
@@ -17,6 +17,7 @@ export default function App() {
  
   const addToCart = (product) => {
     setCart(prevCart => {
+      product.id = prevCart.size
       const newStorage = [...prevCart.storage, product]
       const newTotalPrice = prevCart.totalPrice + product.price
       const newSize = prevCart.size + 1
@@ -45,14 +46,13 @@ export default function App() {
 
   const excludeItem = (item) => {
     setCart(prevCart => {
-      const newStorage = prevCart.filter((product) => product.id !== item.id)
-      const newTotalPrice = cart.totalPrice - item.price
-      const newSize = cart.size - 1
-      
+      const newTotalPrice = prevCart.totalPrice - item.price
+      const newSize = prevCart.size - 1
+      const newStorage = prevCart.storage.filter((cartItem) => cartItem.id !== item.id)
       return {
-        storage: newStorage,
-        totalPrice: newTotalPrice,
-        size: newSize
+            storage: newStorage,
+            totalPrice: newTotalPrice,
+            size: newSize
       }
     })
   }
@@ -63,9 +63,19 @@ export default function App() {
         <Header />
         <GeneralCart cart={cart}/>
           <Routes>
-            <Route path="/" element={<LandingPage cart={cart} products={productsData.products} addToCart={addToCart} clearCart={clearCart} excludeItem={excludeItem}/>} />
-            <Route path="/products" element={<ProductPage products={productsData.products} addToCart={addToCart}/>} />
-            <Route path="/cart" element={<CartPage cart={cart} clearCart={clearCart} excludeItem={excludeItem}/>} />
+            <Route path="/" element={<LandingPage 
+              cart={cart} 
+              products={DataBase.products} 
+              addToCart={addToCart} 
+              clearCart={clearCart} 
+              excludeItem={excludeItem}/>} />
+            <Route path="/products" element={<ProductPage 
+              products={DataBase.products} 
+              addToCart={addToCart}/>} />
+            <Route path="/cart" element={<CartPage 
+              cart={cart} 
+              clearCart={clearCart} 
+              excludeItem={excludeItem}/>} />
           </Routes>
       </BrowserRouter> 
       <Footer />

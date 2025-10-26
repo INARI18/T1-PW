@@ -16,12 +16,15 @@ export default function Cart({cart, clearCart, excludeItem}) {
                             <li><p><b>Itens:</b> {cart.size}</p></li>
                             <li><p><b>Total:</b> {cart.totalPrice}</p></li>
                         </ul>
-                        {cart.storage.map((item) => (
+                        {cart.size > 0 ? (
+                            cart.storage.map((item) => (
                             <Cart_item 
                             key={item.id}
                             item={item} 
                             excludeItem={excludeItem}/>
-                        ))}
+                        ))) : (
+                            <p style={{color:'black'}}>Nenhum produto disponível no momento</p>
+                        )}
                         <Button text="Limpar" variant='clear' onClick={handleClear}/>
                     </section>
                 </section>
@@ -32,7 +35,7 @@ export default function Cart({cart, clearCart, excludeItem}) {
 
 function Cart_item({item , excludeItem}) {
 
-    const deleteItem = () => {
+    const handleExclude = () => {
         if (excludeItem) excludeItem(item);
     }
 
@@ -45,7 +48,7 @@ function Cart_item({item , excludeItem}) {
                     <li> <p>{item.price}</p></li>
                 </ul>
             </section>
-                <div><Button text="Excluir" variant='delete' onClick={deleteItem}/>
+                <div><Button text="Excluir" variant='delete' onClick={handleExclude}/>
                 </div>
         </section>
     );

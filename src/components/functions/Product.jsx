@@ -3,7 +3,7 @@ import Button from '../ui/Button';
 import  {Link}  from 'react-router-dom';
 
 // lista de cards
-export default function ProductList({ products = [], onAddToCart }) {
+export default function ProductList({ products, onAddToCart }) {
     return (
         <div>
             <Link to = "/products" ><h2>Lista de Produtos</h2></Link>
