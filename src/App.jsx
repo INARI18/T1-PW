@@ -22,7 +22,7 @@ export default function App() {
       console.log('Adicionando item:', newItem)
 
       const newStorage = [...prevCart.storage, newItem]
-      const newTotalPrice = prevCart.totalPrice + newItem.price
+      const newTotalPrice = parseFloat((prevCart.totalPrice + newItem.price).toFixed(2))
       const newSize = prevCart.size + 1
       const newIdCounter = prevCart.idCounter + 1
       return {
@@ -42,7 +42,7 @@ export default function App() {
   const excludeItem = (item) => {
     console.log('Excluindo item:', item)
     setCart(prevCart => {
-      const newTotalPrice = prevCart.totalPrice - item.price
+      const newTotalPrice = parseFloat((prevCart.totalPrice - item.price).toFixed(2))
       const newSize = prevCart.size - 1
       const newStorage = prevCart.storage.filter((cartItem) => cartItem.id !== item.id)
       return {
