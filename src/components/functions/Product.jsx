@@ -10,7 +10,10 @@ export default function ProductList({ products = [], onAddToCart }) {
             <section className="ProductList">
                 {products.length > 0 ? (
                     products.map((product) => (
-                        <ProductCard product={product} onAddToCart={onAddToCart} />
+                        <ProductCard 
+                        key={produto.id}
+                        product={product} 
+                        onAddToCart={onAddToCart} />
                     ))
                 ) : (
                     <p style={{color:'black'}}>Nenhum produto disponível no momento</p>

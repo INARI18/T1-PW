@@ -17,7 +17,10 @@ export default function Cart({cart, clearCart, excludeItem}) {
                             <li><p><b>Total:</b> {cart.totalPrice}</p></li>
                         </ul>
                         {cart.storage.map((item) => (
-                            <Cart_item item={item} excludeItem={excludeItem}/>
+                            <Cart_item 
+                            key={produto.id}
+                            item={item} 
+                            excludeItem={excludeItem}/>
                         ))}
                         <Button text="Limpar" variant='clear' onClick={handleClear}/>
                     </section>

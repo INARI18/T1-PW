@@ -22,6 +22,21 @@ header h1{
     color: white;
 }
 
+/* General Cart */
+.General-Cart {
+    background-color: rgb(206, 206, 206);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 10%;
+}
+.General-Cart h1{
+    color: white;
+    margin-left: 20%;
+    width: 100%;
+}
+
+
 /* Buttons */
 
 /* variant buy */

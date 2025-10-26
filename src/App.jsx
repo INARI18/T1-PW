@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage.jsx'
 import CartPage from './pages/CartPage.jsx'
 import Header from './components/ui/Header.jsx'
 import Footer from './components/ui/Footer.jsx'
+import GeneralCart from './components/ui/GeneralCart.jsx'
 import productsData from './assets/Produtos.json'
 
 
@@ -60,6 +61,7 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Header />
+        <GeneralCart cart={cart}/>
           <Routes>
             <Route path="/" element={<LandingPage cart={cart} products={productsData.products} addToCart={addToCart} clearCart={clearCart} excludeItem={excludeItem}/>} />
             <Route path="/products" element={<ProductPage products={productsData.products} addToCart={addToCart}/>} />
