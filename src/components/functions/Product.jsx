@@ -11,7 +11,7 @@ export default function ProductList({ products = [], onAddToCart }) {
                 {products.length > 0 ? (
                     products.map((product) => (
                         <ProductCard 
-                        key={produto.id}
+                        key={product.id}
                         product={product} 
                         onAddToCart={onAddToCart} />
                     ))

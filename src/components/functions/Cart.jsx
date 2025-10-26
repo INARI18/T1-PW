@@ -18,7 +18,7 @@ export default function Cart({cart, clearCart, excludeItem}) {
                         </ul>
                         {cart.storage.map((item) => (
                             <Cart_item 
-                            key={produto.id}
+                            key={item.id}
                             item={item} 
                             excludeItem={excludeItem}/>
                         ))}
