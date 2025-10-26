@@ -1,6 +1,5 @@
 /* Body do CartPage */
 .cart-body {
-    background-color: rgb(240, 240, 240);
     display: flex;
     flex-direction: column;
     justify-content: center;
