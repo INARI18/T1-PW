@@ -30,7 +30,7 @@ header h1 {
 
 /* General Cart */
 .General-Cart {
-  background-color: rgb(206, 206, 206);
+  background-color: rgb(241, 241, 241);
   display: flex;
   justify-content: left;
   align-items: center;
@@ -59,6 +59,11 @@ header h1 {
   width: 100px;
 }
 
+.button--buy:hover {
+  background-color: #1f8a3d;
+  color: white;
+}
+
 /* variant from ItemPage */
 .button--buyItem {
   display: flex;
@@ -66,6 +71,11 @@ header h1 {
   align-items: center;
   color: white;
   background-color: #1f8a3d;
+}
+
+.button--buyItem:hover {
+  background-color: #0c3618;
+  color: white;
 }
 
 /* variant clear */
@@ -79,10 +89,20 @@ header h1 {
   margin-bottom: 10px;
 }
 
+.button--clear:hover {
+  background-color: #911210;
+  color: white;
+}
+
 /* variant delete */
 .button--delete {
   background-color: #ffb836;
   color: #000000;
   border: 2px solid #ffb836;
   margin-left: 820%;
+}
+
+.button--delete:hover {
+  background-color: black;
+  color: #ffb836;
 }
