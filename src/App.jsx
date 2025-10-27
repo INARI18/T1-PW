@@ -8,6 +8,7 @@ import CartPage from "./pages/CartPage.jsx";
 import ItemPage from "./pages/Item.jsx";
 import Error404 from "./pages/404.jsx";
 import DataBase from "./assets/DataBase.json";
+import React from "react";
 
 export default function App() {
   const [cart, setCart] = useState({
@@ -17,17 +18,17 @@ export default function App() {
     idCounter: 1,
   });
 
-  const [cart, setCart] = useState({storage: [], totalPrice: 0, size: 0, idCounter: 1})
-
   const addToCart = (product) => {
-    setCart(prevCart => {
-      const newItem = { ...product, id: prevCart.idCounter}
-      console.log('Adicionando item:', newItem)
+    setCart((prevCart) => {
+      const newItem = { ...product, id: prevCart.idCounter };
+      console.log("Adicionando item:", newItem);
 
-      const newStorage = [...prevCart.storage, newItem]
-      const newTotalPrice = parseFloat((prevCart.totalPrice + newItem.price).toFixed(2))
-      const newSize = prevCart.size + 1
-      const newIdCounter = prevCart.idCounter + 1
+      const newStorage = [...prevCart.storage, newItem];
+      const newTotalPrice = parseFloat(
+        (prevCart.totalPrice + newItem.price).toFixed(2)
+      );
+      const newSize = prevCart.size + 1;
+      const newIdCounter = prevCart.idCounter + 1;
       return {
         storage: newStorage,
         totalPrice: newTotalPrice,
@@ -45,19 +46,23 @@ export default function App() {
   };
 
   const excludeItem = (item) => {
-    console.log('Excluindo item:', item)
-    setCart(prevCart => {
-      const newTotalPrice = parseFloat((prevCart.totalPrice - item.price).toFixed(2))
-      const newSize = prevCart.size - 1
-      const newStorage = prevCart.storage.filter((cartItem) => cartItem.id !== item.id)
+    console.log("Excluindo item:", item);
+    setCart((prevCart) => {
+      const newTotalPrice = parseFloat(
+        (prevCart.totalPrice - item.price).toFixed(2)
+      );
+      const newSize = prevCart.size - 1;
+      const newStorage = prevCart.storage.filter(
+        (cartItem) => cartItem.id !== item.id
+      );
       return {
-            storage: newStorage,
-            totalPrice: newTotalPrice,
-            size: newSize,
-            idCounter: prevCart.idCounter
-      }
-    })
-  }
+        storage: newStorage,
+        totalPrice: newTotalPrice,
+        size: newSize,
+        idCounter: prevCart.idCounter,
+      };
+    });
+  };
 
   return (
     <div>

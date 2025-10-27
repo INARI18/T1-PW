@@ -1,5 +1,7 @@
 import "../assets/styles/Cart.css";
 import Button from "./ui/Button";
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function Cart({ cart, clearCart, excludeItem }) {
   const handleClear = () => {
@@ -60,3 +62,14 @@ function Cart_item({ item, excludeItem }) {
     </section>
   );
 }
+
+Cart.propTypes = {
+  cart: PropTypes.arrayOf(PropTypes.object).isRequired,
+  clearCart: PropTypes.func,
+  excludeItem: PropTypes.func,
+};
+
+Cart_item.propTypes = {
+  item: PropTypes.object.isRequired,
+  excludeItem: PropTypes.func,
+};

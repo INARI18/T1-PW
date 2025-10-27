@@ -1,6 +1,8 @@
 import "../assets/styles/Product.css";
 import Button from "./ui/Button";
 import { useNavigate } from "react-router-dom";
+import React from "react";
+import PropTypes from "prop-types";
 
 // lista de cards
 export default function ProductList({ products = [], onAddToCart }) {
@@ -46,3 +48,13 @@ function ProductCard({ product, onAddToCart }) {
     </div>
   );
 }
+
+ProductList.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onAddToCart: PropTypes.func,
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.object.isRequired,
+  onAddToCart: PropTypes.func,
+};

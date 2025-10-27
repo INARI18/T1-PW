@@ -2,11 +2,13 @@ import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../assets/styles/ItemPage.css";
 import Button from "../components/ui/Button";
+import PropTypes from "prop-types";
+import React from "react";
 
 export default function ItemPage({ products, addToCart }) {
-  const id = useParams();
-  console.log(id);
-  const product = products.find((prod) => prod.id === parseInt(id.id));
+  const { id } = useParams();
+  const productId = Number(id);
+  const product = products?.find((prod) => prod.id === productId);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,3 +45,8 @@ export default function ItemPage({ products, addToCart }) {
     </main>
   );
 }
+
+ItemPage.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  addToCart: PropTypes.func,
+};

@@ -1,5 +1,7 @@
 import "../../assets/styles/Ui.css";
 import { Link } from "react-router-dom";
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function GeneralCart({ cart }) {
   return (
@@ -12,3 +14,7 @@ export default function GeneralCart({ cart }) {
     </main>
   );
 }
+
+GeneralCart.propTypes = {
+  cart: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

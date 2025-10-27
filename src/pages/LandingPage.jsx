@@ -2,6 +2,8 @@ import ProductList from "../components/Product.jsx";
 import Cart from "../components/Cart.jsx";
 import "../assets/styles/Landing.css";
 import { Link } from "react-router-dom";
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function LandingPage({
   cart,
@@ -27,3 +29,11 @@ export default function LandingPage({
     </section>
   );
 }
+
+LandingPage.propTypes = {
+  cart: PropTypes.arrayOf(PropTypes.object).isRequired,
+  products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  addToCart: PropTypes.func,
+  clearCart: PropTypes.func,
+  excludeItem: PropTypes.func,
+};

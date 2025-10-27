@@ -1,6 +1,8 @@
 import "../assets/styles/Cart.css";
 import Cart from "../components/Cart";
 import { Link } from "react-router-dom";
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function CartPage({ cart, clearCart, excludeItem }) {
   return (
@@ -14,3 +16,9 @@ export default function CartPage({ cart, clearCart, excludeItem }) {
     </section>
   );
 }
+
+CartPage.propTypes = {
+  cart: PropTypes.arrayOf(PropTypes.object).isRequired,
+  clearCart: PropTypes.func,
+  excludeItem: PropTypes.func,
+};
