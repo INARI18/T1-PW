@@ -1,18 +1,21 @@
-import './assets/styles/Landing.css'
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
-import {useState} from 'react'
-import ProductPage from './pages/ProductPage.jsx'
-import LandingPage from './pages/LandingPage.jsx'
-import CartPage from './pages/CartPage.jsx'
-import ItemPage from './pages/ItemPage.jsx'
-import Header from './components/ui/Header.jsx'
-import Footer from './components/ui/Footer.jsx'
-import GeneralCart from './components/ui/GeneralCart.jsx'
-import DataBase from './assets/DataBase.json'
-
-
+import MainLayout from "./components/ui/MainLayout.jsx";
+import "./assets/styles/Landing.css";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { useState } from "react";
+import ProductsPage from "./pages/ProductsPage.jsx";
+import LandingPage from "./pages/LandingPage.jsx";
+import CartPage from "./pages/CartPage.jsx";
+import ItemPage from "./pages/Item.jsx";
+import Error404 from "./pages/404.jsx";
+import DataBase from "./assets/DataBase.json";
 
 export default function App() {
+  const [cart, setCart] = useState({
+    storage: [],
+    totalPrice: 0,
+    size: 0,
+    idCounter: 1,
+  });
 
   const [cart, setCart] = useState({storage: [], totalPrice: 0, size: 0, idCounter: 1})
 
@@ -29,15 +32,17 @@ export default function App() {
         storage: newStorage,
         totalPrice: newTotalPrice,
         size: newSize,
-        idCounter: newIdCounter
-      }
-    })
-  }
+        idCounter: newIdCounter,
+      };
+    });
+  };
 
   const clearCart = () => {
-      cart.storage.map((item) => {excludeItem(item)})
-      return
-  }
+    cart.storage.map((item) => {
+      excludeItem(item);
+    });
+    return;
+  };
 
   const excludeItem = (item) => {
     console.log('Excluindo item:', item)
@@ -57,28 +62,49 @@ export default function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
-        <GeneralCart 
-          size={cart.size}/>
-          <Routes>
-            <Route path="/" element={<LandingPage 
-              cart={cart} 
-              products={DataBase.products} 
-              addToCart={addToCart} 
-              clearCart={clearCart} 
-              excludeItem={excludeItem}/>} />
-            <Route path="/products" element={<ProductPage 
-              products={DataBase.products} 
-              addToCart={addToCart}/>} />
-            <Route path="/cart" element={<CartPage 
-              cart={cart} 
-              clearCart={clearCart} 
-              excludeItem={excludeItem}/>} />
-            <Route path="/products/item" element={<ItemPage/>}/>
-          </Routes>
-      </BrowserRouter> 
-      <Footer />
+        <Routes>
+          <Route path="/" element={<MainLayout cart={cart} />}>
+            <Route
+              index
+              element={
+                <LandingPage
+                  cart={cart}
+                  products={DataBase.products}
+                  addToCart={addToCart}
+                  clearCart={clearCart}
+                  excludeItem={excludeItem}
+                />
+              }
+            />
+            <Route
+              path="products"
+              element={
+                <ProductsPage
+                  products={DataBase.products}
+                  addToCart={addToCart}
+                />
+              }
+            />
+            <Route
+              path="cart"
+              element={
+                <CartPage
+                  cart={cart}
+                  clearCart={clearCart}
+                  excludeItem={excludeItem}
+                />
+              }
+            />
+            <Route
+              path="item/:id"
+              element={
+                <ItemPage products={DataBase.products} addToCart={addToCart} />
+              }
+            />
+          </Route>
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
-
