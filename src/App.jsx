@@ -68,7 +68,7 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainLayout cart={cart} />}>
+          <Route path="T1-PW" element={<MainLayout cart={cart} />}>
             <Route
               index
               element={
