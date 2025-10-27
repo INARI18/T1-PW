@@ -1,21 +1,62 @@
-import '../assets/styles/Cart.css'
-import {Cart_item} from './Cart_item'
-import { Button } from './ui/Button'
+import "../assets/styles/Cart.css";
+import Button from "./ui/Button";
 
-export function Cart({ cart }) {
+export default function Cart({ cart, clearCart, excludeItem }) {
+  const handleClear = () => {
+    clearCart();
+  };
 
-    let i;
-    return (
-        <div>
-            <h2>Carrinho</h2>
-            <p>Itens: {cart.size}</p>
-            <p>Total: {cart.total_price}</p>
-            <section className="Cart_List">
-                {cart.storage.map((item) => (
-                    <Cart_item item={item} />
-                ))}
-            </section>
-            <Button text="Finalizar Compra" />
-        </div>
-    );
+  return (
+    <div>
+      <section className="Cart_List">
+        <ul>
+          <li>
+            <p>
+              <b>Itens:</b> {cart.size}
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Total:</b> {cart.totalPrice}
+            </p>
+          </li>
+        </ul>
+        {cart.size > 0 ? (
+          cart.storage.map((item) => (
+            <Cart_item key={item.id} item={item} excludeItem={excludeItem} />
+          ))
+        ) : (
+          <p style={{ color: "black" }}>Nenhum produto disponível no momento</p>
+        )}
+        <Button text="Limpar" variant="clear" onClick={handleClear} />
+      </section>
+    </div>
+  );
+}
+
+function Cart_item({ item, excludeItem }) {
+  const handleExclude = () => {
+    if (excludeItem) excludeItem(item);
+  };
+
+  return (
+    <section className="cart_item">
+      <h2>{item.name}</h2>
+      <section className="item_details">
+        <ul>
+          <li>
+            {" "}
+            <p>{item.name}</p>
+          </li>
+          <li>
+            {" "}
+            <p>{item.price}</p>
+          </li>
+        </ul>
+      </section>
+      <div>
+        <Button text="Excluir" variant="delete" onClick={handleExclude} />
+      </div>
+    </section>
+  );
 }

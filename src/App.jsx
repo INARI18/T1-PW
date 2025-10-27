@@ -1,49 +1,109 @@
-import './assets/styles/App.css'
-import { ProductList } from './components/Product_List.jsx'
-import { Cart } from './components/Cart'
+import MainLayout from "./components/ui/MainLayout.jsx";
+import "./assets/styles/Landing.css";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { useState } from "react";
+import ProductsPage from "./pages/ProductsPage.jsx";
+import LandingPage from "./pages/LandingPage.jsx";
+import CartPage from "./pages/CartPage.jsx";
+import ItemPage from "./pages/Item.jsx";
+import Error404 from "./pages/404.jsx";
+import DataBase from "./assets/DataBase.json";
 
 export default function App() {
-  
-  // const [cartItems, setCartItems] = useState([])
-  // const [products, setProducts] = useState([])
+  const [cart, setCart] = useState({
+    storage: [],
+    totalPrice: 0,
+    size: 0,
+    idCounter: 1,
+  });
 
-  const cart = {
-    storage: [
-      {
-        name: "Prod 1",
-        price: "R$ 109,00"
-      }
-    ],
-    total_price: "R$ 109,00",
-    size: 1
-  }
+  const addToCart = (product) => {
+    setCart((prevCart) => {
+      product.id = prevCart.idCounter;
 
-  const products = [
-    { id: 1, name: 'Prod 1', price: 'R$ 109,00' }, 
-    { id: 2, name: 'Prod 2', price: 'R$ 59,00' }, 
-    { id: 3, name: 'Prod 3', price: 'R$ 29,00' },
-    { id: 4, name: 'Prod 4', price: 'R$ 35,50' },
-    { id: 5, name: 'Prod 5', price: 'R$ 90,10' },
-    { id: 6, name: 'Prod 6', price: 'R$ 12,00' }
-  ]
+      const newStorage = [...prevCart.storage, product];
+      const newTotalPrice = prevCart.totalPrice + product.price;
+      const newSize = prevCart.size + 1;
+      const newIdCounter = prevCart.idCounter + 1;
+
+      return {
+        storage: newStorage,
+        totalPrice: newTotalPrice,
+        size: newSize,
+        idCounter: newIdCounter,
+      };
+    });
+  };
+
+  const clearCart = () => {
+    cart.storage.map((item) => {
+      excludeItem(item);
+    });
+    return;
+  };
+
+  const excludeItem = (item) => {
+    console.log("Excluindo item:", item);
+    setCart((prevCart) => {
+      const newTotalPrice = prevCart.totalPrice - item.price;
+      const newSize = prevCart.size - 1;
+      const newStorage = prevCart.storage.filter(
+        (cartItem) => cartItem.id !== item.id
+      );
+      return {
+        storage: newStorage,
+        totalPrice: newTotalPrice,
+        size: newSize,
+      };
+    });
+  };
 
   return (
-      <main>
-        <header>
-          <h1>Minha Loja</h1>
-        </header>
-        <section>
-            <Cart cart={cart} />
-        </section>
-        <section>
-          <div className="product-Section">
-            <ProductList products={products} />
-          </div>
-        </section>
-        <footer>
-          <p>Direitos Autorais. 2025.</p>
-        </footer>
-      </main>
-  )
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout cart={cart} />}>
+            <Route
+              index
+              element={
+                <LandingPage
+                  cart={cart}
+                  products={DataBase.products}
+                  addToCart={addToCart}
+                  clearCart={clearCart}
+                  excludeItem={excludeItem}
+                />
+              }
+            />
+            <Route
+              path="products"
+              element={
+                <ProductsPage
+                  products={DataBase.products}
+                  addToCart={addToCart}
+                />
+              }
+            />
+            <Route
+              path="cart"
+              element={
+                <CartPage
+                  cart={cart}
+                  clearCart={clearCart}
+                  excludeItem={excludeItem}
+                />
+              }
+            />
+            <Route
+              path="item/:id"
+              element={
+                <ItemPage products={DataBase.products} addToCart={addToCart} />
+              }
+            />
+          </Route>
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
-
