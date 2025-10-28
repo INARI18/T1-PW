@@ -82,7 +82,7 @@ export default function App() {
               }
             />
             <Route
-              path="products"
+              path="T1-PW/products"
               element={
                 <ProductsPage
                   products={DataBase.products}
@@ -91,7 +91,7 @@ export default function App() {
               }
             />
             <Route
-              path="cart"
+              path="T1-PW/cart"
               element={
                 <CartPage
                   cart={cart}
@@ -101,7 +101,7 @@ export default function App() {
               }
             />
             <Route
-              path="item/:id"
+              path="T1-PW/item/:id"
               element={
                 <ItemPage products={DataBase.products} addToCart={addToCart} />
               }

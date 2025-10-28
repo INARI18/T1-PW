@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <main>
       <header>
-        <Link to="/">
+        <Link to="/T1-PW">
           <h1>Minha Loja</h1>
         </Link>
       </header>

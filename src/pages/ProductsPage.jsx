@@ -8,7 +8,7 @@ export default function ProductsPage({ products, addToCart, excludeItem }) {
   return (
     <main>
       <section className="product-body">
-        <Link to="/products">
+        <Link to="T1-PW/products">
           <h2>Lista de Produtos</h2>
         </Link>
         <ProductList

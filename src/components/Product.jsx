@@ -34,7 +34,7 @@ function ProductCard({ product, onAddToCart }) {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate(`/item/${product.id}`);
+    navigate(`T1-PW/item/${product.id}`);
   };
 
   return (
