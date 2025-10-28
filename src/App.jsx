@@ -68,7 +68,7 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="T1-PW" element={<MainLayout cart={cart} />}>
+          <Route path="/T1-PW" element={<MainLayout cart={cart} />}>
             <Route
               index
               element={
@@ -82,7 +82,7 @@ export default function App() {
               }
             />
             <Route
-              path="T1-PW/products"
+              path="/T1-PW/products"
               element={
                 <ProductsPage
                   products={DataBase.products}
@@ -91,7 +91,7 @@ export default function App() {
               }
             />
             <Route
-              path="T1-PW/cart"
+              path="/T1-PW/cart"
               element={
                 <CartPage
                   cart={cart}
@@ -101,7 +101,7 @@ export default function App() {
               }
             />
             <Route
-              path="T1-PW/item/:id"
+              path="/T1-PW/item/:id"
               element={
                 <ItemPage products={DataBase.products} addToCart={addToCart} />
               }

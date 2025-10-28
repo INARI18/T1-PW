@@ -8,7 +8,7 @@ export default function CartPage({ cart, clearCart, excludeItem }) {
   return (
     <section className="cart-body">
       <section>
-        <Link to="T1-PW/cart">
+        <Link to="/T1-PW/cart">
           <h2>Carrinho</h2>
         </Link>
         <Cart cart={cart} clearCart={clearCart} excludeItem={excludeItem} />

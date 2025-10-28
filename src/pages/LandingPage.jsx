@@ -15,13 +15,13 @@ export default function LandingPage({
   return (
     <section className="landing-body">
       <section>
-        <Link to="T1-PW/cart">
+        <Link to="/T1-PW/cart">
           <h2>Carrinho</h2>
         </Link>
         <Cart cart={cart} clearCart={clearCart} excludeItem={excludeItem} />
       </section>
       <section>
-        <Link to="T1-PW/products">
+        <Link to="/T1-PW/products">
           <h2>Lista de Produtos</h2>
         </Link>
         <ProductList products={products} onAddToCart={addToCart} />
