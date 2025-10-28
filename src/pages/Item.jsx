@@ -13,7 +13,7 @@ export default function ItemPage({ products, addToCart }) {
 
   useEffect(() => {
     if (!product) {
-      navigate("/404");
+      navigate("/T1-PW/404");
     }
   }, [product, navigate]);
 
