@@ -107,7 +107,7 @@ export default function App() {
               }
             />
           </Route>
-          <Route path="*" element={<Error404 />} />
+          <Route path="/*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
     </div>
